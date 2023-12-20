@@ -1,27 +1,27 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Button from './Button';
-import { useAuth0 } from '@auth0/auth0-react';
-
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import Button from './Button'
+import { signInWithPopup, signOut } from 'firebase/auth'
+import { auth, provider } from '../config/firebase'
 function Navbar() {
-    const [isVisible, setIsVisible] = useState(false);
-    const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
-
-    const signOutOnClick = () => {
-        logout();
-    };
-
-    const signInOnClick = () => {
-        loginWithRedirect();
-    };
-
-    const dropDown = () => {
-        setIsVisible(!isVisible);
-    };
-
-    const clicked = () => {
-        setIsVisible(false);
-    };
+  const [isVisible, setIsVisible] = useState(false)
+  const signOutOnClick = () => {
+    signOut(auth)
+    location.reload();
+  }
+  const signInOnClick = async () => {
+    // const response = await signInWithPopup(auth, Providers.google);
+    const response = await signInWithPopup(auth, provider);
+    if ( response.user ) {
+        location.reload();
+    }
+  }
+  const dropDown = () => {
+    setIsVisible(!isVisible)
+  }
+  const clicked = () => {
+    setIsVisible(false)
+  }
 
 
     return (
@@ -75,7 +75,7 @@ function Navbar() {
                         </div>
                         </Button>
                         {
-                            !isAuthenticated ? 
+                            !auth.currentUser ? 
                             <Button className='p-3 m-5 bg-teal-400 justify-center'>
                                 <div>
                                     <Link to="/" onClick={signInOnClick} className='flex place-items-center mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white'>
