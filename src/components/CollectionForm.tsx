@@ -28,7 +28,7 @@ const CollectionForm = (props:CollectionFormProps) => {
       event.target.reset()
     } else {
       // Use dispatch to update our state in our store
-      dispatch(chooseTequila(data.tequila));
+      dispatch(chooseTequila(data.tequila_name));
       dispatch(chooseType(data.type));
       dispatch(chooseAbv(data.abv));
       dispatch(chooseRegion(data.region));
@@ -46,8 +46,8 @@ const CollectionForm = (props:CollectionFormProps) => {
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <label htmlFor="tequila">Tequila Name</label>
-          <Input {...register('tequila')} name='tequila' placeholder="Tequila"/>
+          <label htmlFor="tequila_name">Tequila Name</label>
+          <Input {...register('tequila_name')} name='tequila_name' placeholder="Tequila"/>
         </div>
         <div>
           <label htmlFor="type">Type</label>

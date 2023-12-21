@@ -8,7 +8,7 @@ import { useGetData } from '../custom-hooks/FetchData';
 
 const columns: GridColDef[] = [
     { field: 'id', headerName: "ID", width: 90, },
-    { field: 'tequila', headerName: 'Tequila Name', flex: 1 },
+    { field: 'tequila_name', headerName: 'Tequila Name', flex: 1 },
     { field: 'type', headerName: 'Type', flex: 1 },
     { field: 'abv', headerName: 'Abv', flex: 1 },
     { field: 'region', headerName: 'Region', flex: 2 }

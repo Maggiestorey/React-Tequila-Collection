@@ -1,8 +1,8 @@
-const token = 'a65e1e00c48633141940f5dd25d26eba530cb430310ccb79'
+const token = '95da953af66671e31c9a2720332ec962d438bd26acafcab6'
 
 export const server_calls = {
     get: async () => { 
-        const response = await fetch(`https://flask-tequila-collection.onrender.com/`,
+        const response = await fetch(`https://flask-tequila-collection.onrender.com/api/collection`,
         {
             method: 'GET',
             headers: {
@@ -21,7 +21,7 @@ export const server_calls = {
     },
 
     create: async (data: any = {}) => {
-        const response = await fetch(`https://flask-tequila-collection.onrender.com/collection`,
+        const response = await fetch(`https://flask-tequila-collection.onrender.com/api/collection`,
         {
             method: 'POST',
             headers: {
@@ -41,7 +41,7 @@ export const server_calls = {
     },
 
     update: async (id: string, data:any = {}) => {
-        const response = await fetch(`https://flask-tequila-collection.onrender.com/collection/${id}`,
+        const response = await fetch(`https://flask-tequila-collection.onrender.com/api/collection/${id}`,
         {
             method: 'PUT',
             headers: {
@@ -61,7 +61,7 @@ export const server_calls = {
     },
 
     delete: async (id: string) => {
-        const response = await fetch(`https://flask-tequila-collection.onrender.com/collection/${id}`,
+        const response = await fetch(`https://flask-tequila-collection.onrender.com/api/collection/${id}`,
         {
             method: 'DELETE',
             headers: {
